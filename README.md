@@ -1,2 +1,0 @@
-# practiceDelete
-Created with CodeSandbox
