@@ -1,0 +1,55 @@
+<script>
+
+<!-- when page loads run the iniitalization code -->
+  if( document.readyState !== 'loading' ) {
+    console.log( 'document is already ready, just execute code here' );
+    myInitCode();
+  } else {
+    document.addEventListener('DOMContentLoaded', function () {
+    console.log( 'document was not ready, place code here' );
+    myInitCode();
+  });
+  }
+  
+function myInitCode() {
+  document.getElementById("btn-toggle").addEventListener("click",theAlert);
+  document.getElementById("btn-close").addEventListener("click",closeIt);
+}
+
+function theAlert(){
+  doToggle("block");
+  var rslts = [];
+  var cbos = document.getElementsByName("theTabs");
+  for(var i=0;i<cbos.length;i++){
+    rslts.push([cbos[i].value,cbos[i].checked]);
+  }
+ // console.log(rslts);
+  google.script.run
+    .withSuccessHandler(toggleSuccess)
+    .callLibrary3('libTabPicker.mroTabPicker1.toggleEm',[rslts]);
+}
+
+function toggleSuccess(){
+  doToggle("none")
+}
+function doToggle(showHide){
+  let disp = showHide
+  var x = document.getElementById("spinner");
+  x.style.display = disp
+
+}
+function toggleSpinner() {
+  console.log("got to toggle")
+  var x = document.getElementById("spinner");
+  console.log(x.style.display)
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function closeIt(){
+  google.script.host.close();
+}
+
+</script>
