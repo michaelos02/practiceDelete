@@ -1,0 +1,33 @@
+<style>
+	#main {
+		margin-left: 15px;
+	}
+
+	#theBoxes {
+		margin-left: 15px;
+	}
+
+	#button-bar {
+		padding-top: 15px;
+	}
+
+  #spinner {
+    border: 16px solid darkgray; /* Light grey */
+    border-top: 16px solid #3C33FF; /* Blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    z-index: 2;
+    display: none;
+    }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+</style>
